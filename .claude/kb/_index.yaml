@@ -3,8 +3,8 @@
 # Project: ShopAgent (Semana AI Data Engineer)
 
 version: "2.0"
-last_updated: "2026-04-11"
-last_domain_added: supabase
+last_updated: "2026-04-12"
+last_domain_added: deepeval
 
 # File Size Limits (SINGLE SOURCE OF TRUTH)
 limits:
@@ -150,6 +150,8 @@ domains:
         path: patterns/circuit-breaker.md
       - name: crew-coordination
         path: patterns/crew-coordination.md
+      - name: shopagent-crew
+        path: patterns/shopagent-crew.md
     specs:
       - name: crewai-config
         path: specs/crewai-config.yaml
@@ -206,6 +208,8 @@ domains:
         path: patterns/vector-store-rag.md
       - name: webhook-edge-function
         path: patterns/webhook-edge-function.md
+      - name: shopagent-ledger-queries
+        path: patterns/shopagent-ledger-queries.md
 
   qdrant:
     name: Qdrant Vector Database
@@ -225,6 +229,8 @@ domains:
     patterns:
       - name: n8n-rag-pipeline
         path: patterns/n8n-rag-pipeline.md
+      - name: shopagent-reviews-collection
+        path: patterns/shopagent-reviews-collection.md
 
   langfuse:
     name: Langfuse
@@ -483,3 +489,163 @@ domains:
     specs:
       - name: architecture-templates
         path: specs/architecture-templates.yaml
+
+  # =========================================================================
+  # NEW DOMAINS — Added 2026-04-12 for ShopAgent event (Days 1-4)
+  # =========================================================================
+
+  shadowtraffic:
+    name: ShadowTraffic
+    description: "Declarative synthetic data generation for ShopAgent e-commerce pipeline — v1.17.0"
+    path: shadowtraffic/
+    mcp_validated: "2026-04-12"
+    status: complete
+    agents:
+      - shopagent-builder
+    entry_points:
+      index: index.md
+      quick_reference: quick-reference.md
+    concepts:
+      - name: generators
+        path: concepts/generators.md
+        confidence: 0.95
+      - name: connections
+        path: concepts/connections.md
+        confidence: 0.95
+      - name: functions
+        path: concepts/functions.md
+        confidence: 0.95
+      - name: faker-expressions
+        path: concepts/faker-expressions.md
+        confidence: 0.95
+    patterns:
+      - name: ecommerce-postgres
+        path: patterns/ecommerce-postgres.md
+      - name: staged-seeding
+        path: patterns/staged-seeding.md
+    specs:
+      - name: shadowtraffic-config
+        path: specs/shadowtraffic-config.yaml
+
+  llamaindex:
+    name: LlamaIndex
+    description: "RAG ingestion and query framework for ShopAgent — JSONL reviews to Qdrant via embeddings"
+    path: llamaindex/
+    mcp_validated: "2026-04-12"
+    status: complete
+    agents:
+      - shopagent-builder
+    entry_points:
+      index: index.md
+      quick_reference: quick-reference.md
+    concepts:
+      - name: settings
+        path: concepts/settings.md
+        confidence: 0.95
+      - name: readers
+        path: concepts/readers.md
+        confidence: 0.95
+      - name: vector-store-index
+        path: concepts/vector-store-index.md
+        confidence: 0.95
+      - name: query-engine
+        path: concepts/query-engine.md
+        confidence: 0.95
+    patterns:
+      - name: jsonl-to-qdrant
+        path: patterns/jsonl-to-qdrant.md
+      - name: rag-query-pipeline
+        path: patterns/rag-query-pipeline.md
+    specs:
+      - name: llamaindex-config
+        path: specs/llamaindex-config.yaml
+
+  langchain:
+    name: LangChain
+    description: "LangChain + LangGraph agent framework for ShopAgent — autonomous SQL vs semantic routing"
+    path: langchain/
+    mcp_validated: "2026-04-12"
+    status: complete
+    agents:
+      - shopagent-builder
+    entry_points:
+      index: index.md
+      quick_reference: quick-reference.md
+    concepts:
+      - name: tools
+        path: concepts/tools.md
+        confidence: 0.95
+      - name: chat-models
+        path: concepts/chat-models.md
+        confidence: 0.95
+      - name: react-agent
+        path: concepts/react-agent.md
+        confidence: 0.95
+      - name: routing
+        path: concepts/routing.md
+        confidence: 0.95
+    patterns:
+      - name: react-agent-dual-tools
+        path: patterns/react-agent-dual-tools.md
+      - name: langgraph-routing
+        path: patterns/langgraph-routing.md
+    specs:
+      - name: langchain-config
+        path: specs/langchain-config.yaml
+
+  chainlit:
+    name: Chainlit
+    description: "Chainlit conversational interface for ShopAgent — streaming chat with agent step visibility"
+    path: chainlit/
+    mcp_validated: "2026-04-12"
+    status: complete
+    agents:
+      - shopagent-builder
+    entry_points:
+      index: index.md
+      quick_reference: quick-reference.md
+    concepts:
+      - name: lifecycle
+        path: concepts/lifecycle.md
+        confidence: 0.95
+      - name: messages
+        path: concepts/messages.md
+        confidence: 0.95
+      - name: steps
+        path: concepts/steps.md
+        confidence: 0.95
+    patterns:
+      - name: langchain-integration
+        path: patterns/langchain-integration.md
+      - name: crewai-integration
+        path: patterns/crewai-integration.md
+    specs:
+      - name: chainlit-config
+        path: specs/chainlit-config.yaml
+
+  deepeval:
+    name: DeepEval
+    description: "LLM evaluation framework for ShopAgent — test tool selection correctness and answer quality"
+    path: deepeval/
+    mcp_validated: "2026-04-12"
+    status: complete
+    agents:
+      - shopagent-builder
+    entry_points:
+      index: index.md
+      quick_reference: quick-reference.md
+    concepts:
+      - name: test-cases
+        path: concepts/test-cases.md
+        confidence: 0.95
+      - name: metrics
+        path: concepts/metrics.md
+        confidence: 0.95
+    patterns:
+      - name: agent-evaluation
+        path: patterns/agent-evaluation.md
+      - name: pytest-integration
+        path: patterns/pytest-integration.md
+    specs:
+      - name: deepeval-config
+        path: specs/deepeval-config.yaml

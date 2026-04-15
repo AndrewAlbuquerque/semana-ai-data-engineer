@@ -4,8 +4,10 @@
 
 ## What is ShopAgent?
 
-ShopAgent is an autonomous agent crew built on real e-commerce data. It answers business questions
-by routing to the right data store: SQL for exact numbers, vectors for customer sentiment.
+ShopAgent is an autonomous agent crew built on real e-commerce data.
+**This project is optimized for Gemini CLI.** See [GEMINI.md](./GEMINI.md) for details.
+
+It answers business questions by routing to the right data store: SQL for exact numbers, vectors for customer sentiment.
 Days 1-3 run 100% locally with Docker. Day 4 migrates the same architecture to the cloud.
 
 *Central question: O que eu consigo fazer agora que nao conseguia antes?*
